@@ -50,10 +50,37 @@ endif()
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
+     Classes/Managers/ResourceManager.cpp
+     Classes/Managers/SceneManager.cpp
+     Classes/Objects/CObject.cpp
+     Classes/Objects/CScene.cpp
+     Classes/Scenes/AboutScene.cpp
+     Classes/Scenes/G01_LoadingScene.cpp
+     Classes/Scenes/G01_PlayScene.cpp
+     Classes/Scenes/G02_LoadingScene.cpp
+     Classes/Scenes/G02_PlayScene.cpp
+     Classes/Scenes/MainMenuScene.cpp
+     Classes/Scenes/SettingScene.cpp
+     Classes/Scenes/SplashScene.cpp
+
      )
 list(APPEND GAME_HEADER
+     Classes/AllLibs.h
+     Classes/Definitions.h
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/Managers/ResourceManager.h
+     Classes/Managers/SceneManager.h
+     Classes/Objects/CObject.h
+     Classes/Objects/CScene.h
+     Classes/Scenes/AboutScene.h
+     Classes/Scenes/G01_LoadingScene.h
+     Classes/Scenes/G01_PlayScene.h
+     Classes/Scenes/G02_LoadingScene.h
+     Classes/Scenes/G02_PlayScene.h
+     Classes/Scenes/MainMenuScene.h
+     Classes/Scenes/SettingScene.h
+     Classes/Scenes/SplashScene.h
      )
 
 if(ANDROID)
@@ -112,9 +139,9 @@ endif()
 set(all_code_files
     ${GAME_HEADER}
     ${GAME_SOURCE}
-    )
+)
 if(NOT ANDROID)
-    add_executable(${APP_NAME} ${all_code_files})
+    add_executable(${APP_NAME} ${all_code_files} )
 else()
     add_library(${APP_NAME} SHARED ${all_code_files})
     add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos/platform/android ${ENGINE_BINARY_PATH}/cocos/platform)
